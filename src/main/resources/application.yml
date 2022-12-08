@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+
+    hidden-method:
+      filter:
+        enabled: true

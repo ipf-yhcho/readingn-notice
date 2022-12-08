@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testDB?enabledTLSProtocols=TLSv1.2&serverTimezone=Asia/Seoul&sendFractionalSeconds=false;DB_CLOSE_DELAY=-1;MODE=MYSQL
+    username: sa
+    password:
+    hikari:
+      data-source-properties:
+        rewriteBatchedStatements: true
+      maximum-pool-size: 3
+
+  jpa:
+    #    database: mysql
+    #    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+    open-in-view: false
+
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 1000
+
+        format_sql: true
+        #        default_batch_fetch_size: 1000
+        show_sql: true
+
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+
+springfox:
+  documentation:
+    openApi:
+      v3:
+        path: /portals/v3/api-docs
